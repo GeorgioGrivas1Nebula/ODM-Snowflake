@@ -1,0 +1,18 @@
+
+CREATE OR ALTER TABLE Organisation.Staging_Entity_Product
+(
+    EntityProductID         INT             
+    ,EntityProductGUID      UUID
+    ,Description            NVARCHAR(255)  
+    ,Manufacturer           NVARCHAR(255)  
+    ,ProductCode            NVARCHAR(255)  
+    ,Gateway                BOOLEAN             
+    ,GatewaySwitch          BOOLEAN             
+    ,EntityTypeDetailID     INT             
+    ,ImportID               INT             
+    ,_InsertedById          INT
+    ,_InsertedDate          DATETIME
+    ,_UpdatedById           INT
+    ,_UpdatedDate           DATETIME
+    ,_IsDeleted             BOOLEAN
+)
