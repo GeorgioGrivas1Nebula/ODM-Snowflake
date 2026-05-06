@@ -26,7 +26,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
     SET
         Target.OwnerID = src._ID
-    FROM Organisation.Entity src
+    FROM Organisation.Owner src
     WHERE src.OneViewID = Target.OwnerID
     AND src.ClientID = Target.ClientId;
 
@@ -43,7 +43,27 @@ AS 'BEGIN
     FROM Organisation.Division src
     WHERE src.OneViewID = Target.DivisionID
     AND src.ClientID = Target.ClientId;
-    
+
+    UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
+    SET
+        Target.TMSDetailProductID = src._ID
+    FROM Organisation.TMSDetailProduct src
+    WHERE src.OneViewID = Target.TMSDetailProductID
+    AND src.ClientID = Target.ClientId;
+
+    UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
+    SET
+        Target.AllocationGroupID = src._ID
+    FROM Organisation.AllocationGroup src
+    WHERE src.OneViewID = Target.AllocationGroupID
+    AND src.ClientID = Target.ClientId;
+
+    UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
+    SET
+        Target.EmployeeID = src._ID
+    FROM Organisation.Employee src
+    WHERE src.OneViewID = Target.EmployeeID
+    AND src.ClientID = Target.ClientId;
 
     RETURN 1;
 

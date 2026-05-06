@@ -33,7 +33,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY as Target
     SET
         Target.OwnerID = src._ID
-    FROM Oorganisation.Owner src
+    FROM Organisation.Owner src
     WHERE src.OneViewID = Target.OwnerID
     AND src.ClientID = Target.ClientId;
 
