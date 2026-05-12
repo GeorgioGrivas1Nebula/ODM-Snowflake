@@ -1,9 +1,10 @@
-CREATE TABLE IF NOT EXISTS Common.Staging_Client_Vendor
+CREATE OR REPLACE TABLE Common.Staging_Client_Vendor
 (
     ClientVendorID          INT        
     ,ClientReference        NVARCHAR(4)
     ,ClientId               INT           
     ,VendorReference        NVARCHAR(4)
+    ,VendorId              INT
     ,TypeDetailID           INT       
     ,StatusDetailID         INT          
     ,AdministratorEmail     NVARCHAR (200)

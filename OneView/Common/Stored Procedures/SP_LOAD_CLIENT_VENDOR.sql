@@ -9,9 +9,8 @@ MERGE INTO COMMON.CLIENT_VENDOR as T
 USING (
 	SELECT
 		ClientVendorID     
-		,ClientReference   
 		,ClientId          
-		,VendorReference   
+		,VendorId
 		,TypeDetailID      
 		,StatusDetailID    
 		,AdministratorEmail
@@ -29,6 +28,7 @@ AND T.ClientId = S.ClientId
 WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
+	T.VendorId = S.VendorId,
 	T.TypeDetailID = S.TypeDetailID,
 	T.StatusDetailID = S.StatusDetailID,
 	T.AdministratorEmail = S.AdministratorEmail,
@@ -41,6 +41,7 @@ WHEN NOT MATCHED THEN
 INSERT (
 	OneViewId            
 	,ClientID             
+	,VendorID
 	,TypeDetailID         
 	,StatusDetailID       
 	,AdministratorEmail   
@@ -53,9 +54,8 @@ INSERT (
 	,_IsDeleted           
 ) VALUES (
 	 S.ClientVendorID      
-	,S.ClientReference    
 	,S.ClientId           
-	,S.VendorReference    
+	,S.VendorId    
 	,S.TypeDetailID       
 	,S.StatusDetailID     
 	,S.AdministratorEmail 

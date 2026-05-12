@@ -18,7 +18,7 @@ AS 'BEGIN
 
     UPDATE COMMON.STAGING_CLIENT_VENDOR as Target
     SET 
-        Target.ClientVendorID = src._ID
+        Target.VendorID = src._ID
     FROM NEBCOREODMSFDEV.ONEVIEW.DIMVENDOR src
     WHERE target.VendorReference = src.REFERENCE;
 

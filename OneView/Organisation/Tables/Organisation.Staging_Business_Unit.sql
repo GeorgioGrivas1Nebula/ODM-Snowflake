@@ -2,6 +2,7 @@
 CREATE OR ALTER TABLE Organisation.Staging_Business_Unit
 (
 	BusinessUnitID     INT
+	,ClientReference   NVARCHAR(4)
     ,ClientId          INT              
 	,BusinessUnitGUID   UUID 
     ,BusinessUnit       NVARCHAR(150)

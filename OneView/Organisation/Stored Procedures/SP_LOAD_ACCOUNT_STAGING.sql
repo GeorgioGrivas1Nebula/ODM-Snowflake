@@ -19,21 +19,21 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ACCOUNT as Target
     SET
         Target.StatusDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.StatusDetailID
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_ACCOUNT as Target
     SET
         Target.TypeDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.TypeDetailID
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_ACCOUNT as Target
     SET
         Target.ClientVendorID = src._ID
-    FROM Organisation.ClientVendor src
+    FROM COMMON.Client_Vendor src
     WHERE src.OneViewID = Target.ClientVendorID
     AND src.ClientID = Target.ClientId;
 

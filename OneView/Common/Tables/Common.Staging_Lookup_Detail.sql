@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Common.Staging_Lookup_Detail
+CREATE OR ALTER TABLE Common.Staging_Lookup_Detail
 (
 	DetailId            INT,
 	GroupId             INT,

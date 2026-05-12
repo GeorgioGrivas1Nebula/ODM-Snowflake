@@ -23,7 +23,7 @@ USING (
 		,_IsDeleted  
 	FROM COMMON.STAGING_COUNTRY
 ) S
-ON T.OneViewCountryId = S.CountryId
+ON T.OneViewId = S.CountryId
 WHEN MATCHED
 AND S.Country != T.Country
 THEN UPDATE SET
@@ -38,7 +38,7 @@ THEN UPDATE SET
 	T._IsDeleted = S._IsDeleted
 WHEN NOT MATCHED THEN
 INSERT (
-	OneViewCountryId,
+	OneViewId,
 	Link,
 	Country,
 	ContinentRegionID,

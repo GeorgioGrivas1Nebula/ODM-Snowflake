@@ -33,7 +33,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
     SET
         Target.CostCentreID = src._ID
-    FROM Organisation.CostCentre src
+    FROM Organisation.Cost_Centre src
     WHERE src.OneViewID = Target.CostCentreID
     AND src.ClientID = Target.ClientId;
 
@@ -47,14 +47,14 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
     SET
         Target.TMSDetailProductID = src._ID
-    FROM Organisation.TMSDetailProduct src
+    FROM VOICE.TMS_Detail_Product src
     WHERE src.OneViewID = Target.TMSDetailProductID
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_ENTITY_OWNER as Target
     SET
         Target.AllocationGroupID = src._ID
-    FROM Organisation.AllocationGroup src
+    FROM Organisation.Allocation_Group src
     WHERE src.OneViewID = Target.AllocationGroupID
     AND src.ClientID = Target.ClientId;
 

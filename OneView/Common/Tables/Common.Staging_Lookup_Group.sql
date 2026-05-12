@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Common.Staging_Lookup_Group
+CREATE OR ALTER TABLE Common.Staging_Lookup_Group
 (
 	GroupId                 INT,
 	ClientReference         NVARCHAR (4),

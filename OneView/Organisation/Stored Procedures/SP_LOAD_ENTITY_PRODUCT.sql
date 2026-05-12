@@ -9,6 +9,8 @@ MERGE INTO ORGANISATION.ENTITY_PRODUCT as T
 USING (
     SELECT
         EntityProductID
+        ,ClientId
+         ,ClientReference
         ,EntityProductGUID
         ,Description
         ,Manufacturer
@@ -27,6 +29,7 @@ USING (
 ON T.OneViewID = S.EntityProductID
 WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
+AND T.ClientId = S.ClientId
 THEN UPDATE SET
     T.EntityProductGUID = S.EntityProductGUID,
     T.Description = S.Description,
@@ -42,6 +45,7 @@ THEN UPDATE SET
 WHEN NOT MATCHED THEN
 INSERT (
     OneViewID
+    ,ClientId
     ,EntityProductGUID
     ,Description
     ,Manufacturer
@@ -57,6 +61,7 @@ INSERT (
     ,_IsDeleted
 ) VALUES (
     S.EntityProductID
+    ,S.ClientId
     ,S.EntityProductGUID
     ,S.Description
     ,S.Manufacturer

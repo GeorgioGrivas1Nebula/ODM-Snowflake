@@ -9,23 +9,22 @@ MERGE INTO COMMON.REGION as T
 USING (
 	SELECT
 	RegionId,
-    ClientReference,  
     ClientId,         
     Region,           
     Email,            
     Business_Manager,
-    Regional_Manager, 
-    UserAddedID, 
-    DateAdded, 
-    UserUpdatedID, 
-    DateUpdated, 
-    _DeletedBit
+    Regional_Manager 
+    ,_InsertedById     
+    ,_InsertedDate     
+    ,_UpdatedById      
+    ,_UpdatedDate      
+    ,_IsDeleted  
 	FROM COMMON.STAGING_REGION
 ) S
-ON T.OneViewRegionId = S.RegionId
+ON T.OneViewId = S.RegionId
 AND T.ClientId = S.ClientId
 WHEN MATCHED
-AND S.DateUpdated != T.DateUpdated
+AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
     T.Region = S.Region,
     T.Email = S.Email,
@@ -36,7 +35,7 @@ THEN UPDATE SET
     T._IsDeleted = S._IsDeleted
 WHEN NOT MATCHED THEN
 INSERT (
-	OneViewRegionId
+	OneViewId
     ,ClientId         
     ,Region           
     ,Email            

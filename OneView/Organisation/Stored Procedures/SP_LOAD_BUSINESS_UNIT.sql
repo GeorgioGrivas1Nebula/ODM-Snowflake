@@ -8,7 +8,8 @@ AS
 MERGE INTO ORGANISATION.BUSINESS_UNIT as T
 USING (
     SELECT
-        BusinessUnitID   
+        ClientId
+        ,BusinessUnitID   
         ,BusinessUnitGUID 
         ,BusinessUnit     
         ,_InsertedById

@@ -25,16 +25,16 @@ AS 'BEGIN
 
     UPDATE ORGANISATION.STAGING_EMPLOYEE as Target
     SET
-        Target.BusinessUnitsId = src._ID
-    FROM Organisation.Business_Units src
-    WHERE src.OneViewID = Target.BusinessUnitsId
+        Target.BusinessUnitId = src._ID
+    FROM Organisation.Business_Unit src
+    WHERE src.OneViewID = Target.BusinessUnitId
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_EMPLOYEE as Target
     SET
     Target.ManagerEmployeeId = src._ID
-    FROM Organisation.STAGING_EMPLOYEE src
-    WHERE src.OneViewEmployeeId = Target.ManagerEmployeeId
+    FROM Organisation.EMPLOYEE src
+    WHERE src.OneViewID = Target.ManagerEmployeeId
     AND src.ClientID = Target.ClientId;
 
     RETURN 1;

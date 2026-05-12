@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Common.Staging_Region
+CREATE OR ALTER TABLE Common.Staging_Region
 (
 	RegionId INT,
     ClientReference             NVARCHAR (4),

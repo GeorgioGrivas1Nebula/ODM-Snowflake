@@ -12,7 +12,6 @@ USING (
         ,ClientId
         ,CompanyCode
         ,Name
-        ,CurrencyID
         ,LanguageID
         ,_InsertedById
         ,_InsertedDate
@@ -28,7 +27,6 @@ AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
     T.CompanyCode = S.CompanyCode,
     T.Name = S.Name,
-    T.CurrencyID = S.CurrencyID,
     T.LanguageID = S.LanguageID,
     T._UpdatedById = S._UpdatedById,
     T._UpdatedDate = S._UpdatedDate,
@@ -39,7 +37,6 @@ INSERT (
     ,ClientId
     ,CompanyCode
     ,Name
-    ,CurrencyID
     ,LanguageID
     ,_InsertedById
     ,_InsertedDate
@@ -51,7 +48,6 @@ INSERT (
     ,S.ClientId
     ,S.CompanyCode
     ,S.Name
-    ,S.CurrencyID
     ,S.LanguageID
     ,S._InsertedById
     ,S._InsertedDate

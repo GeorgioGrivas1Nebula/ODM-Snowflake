@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Common.Lookup_Group (
+CREATE OR ALTER TABLE Common.Lookup_Group (
     _ID             NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER,
     OneViewId       INT,
     ClientId        INT,

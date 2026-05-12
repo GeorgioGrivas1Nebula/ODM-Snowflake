@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS Common.Country
+CREATE OR ALTER TABLE Common.Country
 (
 	_ID 				NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER,
     OneViewId   		INT,
@@ -11,10 +11,10 @@ CREATE TABLE IF NOT EXISTS Common.Country
 	ISO31661alpha3     	CHAR(3),
 	UNNumericalCode    	CHAR(3),
 	Flag               	NVARCHAR(500),
-	CreatedTimestamp   	DATETIME,
-	CreatedUserID      	INT,
-	UpdatedTimestamp   	DATETIME,
-	UpdatedUserID      	INT,
-	_DeletedBit        	BOOLEAN,
+    _InsertedById      INT,
+    _InsertedDate        DATETIME,
+    _UpdatedById    INT,
+    _UpdatedDate      DATETIME,
+    _IsDeleted       BOOLEAN,
     primary key (_ID)
 )

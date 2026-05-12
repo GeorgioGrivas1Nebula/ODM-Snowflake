@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS Organisation.Allocation_Group
+CREATE OR ALTER TABLE Organisation.Allocation_Group
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER 
     ,OneViewID INT     

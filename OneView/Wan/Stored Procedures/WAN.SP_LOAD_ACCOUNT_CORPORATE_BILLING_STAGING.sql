@@ -27,14 +27,14 @@ AS 'BEGIN
     UPDATE WAN.STAGING_ACCOUNT_CORPORATE_BILLING as Target
     SET
         Target.AccessServiceTypeDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.Lookup_Detail src
     WHERE src.OneViewID = Target.AccessServiceTypeDetailID
     AND src.ClientID = Target.ClientId;
     
     UPDATE WAN.STAGING_ACCOUNT_CORPORATE_BILLING as Target
     SET
         Target.SlaTypeDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.Lookup_Detail src
     WHERE src.OneViewID = Target.SlaTypeDetailID
     AND src.ClientID = Target.ClientId;
     

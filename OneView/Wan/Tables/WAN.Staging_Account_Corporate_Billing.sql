@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS WAN.Staging_Account_Corporate_Billing
+CREATE OR ALTER TABLE WAN.Staging_Account_Corporate_Billing
 (
     AccountCorporateWanBlID         INT     
     ,ClientReference                NVARCHAR(4)

@@ -1,7 +1,9 @@
 
-CREATE OR ALTER TABLE Organisation.Staging_Entity_Product
+CREATE OR REPLACE TABLE Organisation.Staging_Entity_Product
 (
     EntityProductID         INT             
+    ,ClientId           INT 
+    ,ClientReference    NVARCHAR(4)
     ,EntityProductGUID      UUID
     ,Description            NVARCHAR(255)  
     ,Manufacturer           NVARCHAR(255)  

@@ -25,8 +25,8 @@ AS 'BEGIN
 
     UPDATE ORGANISATION.STAGING_OWNER as Target
     SET
-        Target.StatusDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+        Target.OwnerStatusDetailID = src._ID
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.OwnerStatusDetailID
     AND src.ClientID = Target.ClientId;
 
@@ -38,9 +38,9 @@ AS 'BEGIN
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_OWNER as Target
-    SET        Target.AdminCountryLink = src.OneViewCountryId
+    SET        Target.AdminCountryLink = src._ID
     FROM Common.Country src
-    WHERE src.OneViewCountryId = Target.AdminCountryLink
+    WHERE src.OneViewID = Target.AdminCountryLink
     AND src.ClientID = Target.ClientId;
 
     UPDATE ORGANISATION.STAGING_OWNER as Target
@@ -66,7 +66,7 @@ AS 'BEGIN
 
     UPDATE ORGANISATION.STAGING_OWNER as Target
     SET        Target.OwnerClassDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.OwnerClassDetailID
     AND src.ClientID = Target.ClientId;
 

@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS WAN.Account_Corporate_Billing
+CREATE OR ALTER TABLE WAN.Account_Corporate_Billing
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
     ,OneViewID                      INT

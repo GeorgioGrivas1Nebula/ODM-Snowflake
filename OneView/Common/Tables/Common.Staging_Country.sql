@@ -1,10 +1,10 @@
-
-CREATE TABLE IF NOT EXISTS Common.Staging_Country
+CREATE OR ALTER TABLE Common.Staging_Country
 (
 	CountryId       	INT,
 	Link               	INT,
 	Country            	NVARCHAR(200),
 	ContinentRegionID  	INT,
+	CurrencyId	 		INT,
 	ISO31661alpha2     	CHAR(2),
 	ISO31661alpha3     	CHAR(3),
 	UNNumericalCode    	CHAR(3),

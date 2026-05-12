@@ -1,8 +1,8 @@
 
-CREATE TABLE IF NOT EXISTS LAN.Account_Corporate_Billing
+CREATE OR REPLACE TABLE LAN.Account_Corporate_Billing
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
-    ,OneViewID INT
+    ,OneViewID                      INT
     ,ClientId                       INT         
     ,PeriodDate                     DATE          
     ,EntityID                      INT           

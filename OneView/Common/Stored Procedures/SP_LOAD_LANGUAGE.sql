@@ -8,48 +8,48 @@ AS
 MERGE INTO COMMON.LANGUAGE as T 
 USING (
     SELECT
-        LanguageID,
-        LanguageCode,
-        Name,
-        DateAdded,
-        UserAddedID,
-        DateUpdated,
-        UserUpdatedID,
-        _DeletedBit
+        LanguageID
+        ,LanguageCode
+        ,Name
+		,_InsertedById     
+		,_InsertedDate     
+		,_UpdatedById      
+		,_UpdatedDate      
+		,_IsDeleted  
     FROM COMMON.STAGING_LANGUAGE 
 ) S 
-ON T.OneViewLanguageID = S.LanguageID
+ON T.OneViewId = S.LanguageID
 WHEN MATCHED 
 AND S.Name != T.Name 
 THEN UPDATE SET 
     T.Name = S.Name,
-    T.DateUpdated = S.DateUpdated,
-    T.UserUpdatedID = S.UserUpdatedID
+    T._UpdatedDate = S._UpdatedDate,
+    T._UpdatedById = S._UpdatedById
 WHEN MATCHED 
-AND S._DeletedBit != T._DeletedBit
+AND S._IsDeleted != T._IsDeleted
 THEN UPDATE SET 
-    T._DeletedBit = S._DeletedBit,
-    T.DateUpdated = S.DateUpdated,
-    T.UserUpdatedID = S.UserUpdatedID
+    T._IsDeleted = S._IsDeleted,
+    T._UpdatedDate = S._UpdatedDate,
+    T._UpdatedById = S._UpdatedById
 WHEN NOT MATCHED THEN
 INSERT (
-    OneViewLanguageID,
+    OneViewId,
     LanguageCode,
     Name,
-    DateAdded,
-    UserAddedID,
-    DateUpdated,
-    UserUpdatedID,
-    _DeletedBit
+    _InsertedDate,
+    _InsertedById,
+    _UpdatedDate,
+    _UpdatedById,
+    _IsDeleted
 ) VALUES (
     S.LanguageID,
     S.LanguageCode,
     S.Name,
-    S.DateAdded,
-    S.UserAddedID,
-    S.DateUpdated,
-    S.UserUpdatedID,
-    S._DeletedBit
+    S._InsertedDate,
+    S._InsertedById,
+    S._UpdatedDate,
+    S._UpdatedById,
+    S._IsDeleted
 );
 
 DELETE FROM COMMON.STAGING_LANGUAGE;

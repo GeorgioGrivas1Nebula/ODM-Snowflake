@@ -26,7 +26,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY as Target
     SET
         Target.TypeID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.TypeID
     AND src.ClientID = Target.ClientId;
 
@@ -40,7 +40,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY as Target
     SET
         Target.StatusID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.StatusID
     AND src.ClientID = Target.ClientId;
 
@@ -54,7 +54,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY as Target
     SET
         Target.ClientVendorID = src._ID
-    FROM Organisation.Client_Vendor src
+    FROM COMMON.Client_Vendor src
     WHERE src.OneViewID = Target.ClientVendorID
     AND src.ClientID = Target.ClientId;
 

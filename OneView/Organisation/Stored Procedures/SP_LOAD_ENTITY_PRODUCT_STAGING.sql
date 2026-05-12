@@ -19,7 +19,7 @@ AS 'BEGIN
     UPDATE ORGANISATION.STAGING_ENTITY_PRODUCT as Target
     SET
         Target.EntityTypeDetailID = src._ID
-    FROM Organisation.Lookup_Detail src
+    FROM COMMON.LOOKUP_DETAIL src
     WHERE src.OneViewID = Target.EntityTypeDetailID
     AND src.ClientID = Target.ClientId;
 

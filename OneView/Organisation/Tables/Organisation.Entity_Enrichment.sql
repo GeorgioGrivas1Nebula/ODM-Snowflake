@@ -1,5 +1,5 @@
 
-CREATE OR ALTER TABLE Organisation.Staging_Entity_Enrichment
+CREATE OR ALTER TABLE Organisation.Entity_Enrichment
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
     ,OneViewID INT

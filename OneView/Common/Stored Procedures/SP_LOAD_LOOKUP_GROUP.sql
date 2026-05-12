@@ -9,7 +9,6 @@ MERGE INTO COMMON.LOOKUP_GROUP as T
 USING (
 	SELECT
         GroupId       
-        ,ClientReference
         ,ClientId      
         ,ParentGroupId 
         ,Reference     
@@ -27,7 +26,6 @@ AND T.ClientId = S.ClientId
 WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
-	T.GroupId = S.GroupId,
 	T.ClientId = S.ClientId,
 	T.Reference = S.Reference,
 	T.GroupName = S.GroupName,
@@ -39,12 +37,13 @@ THEN UPDATE SET
 WHEN NOT MATCHED THEN
 INSERT (
 	OneViewId            
-	,GroupId             
 	,Reference           
 	,ClientId            
 	,GroupName    
 	,Description     
 	,ParentGroupId      
+	,_InsertedById
+	,_InsertedDate
 	,_UpdatedById         
 	,_UpdatedDate         
 	,_IsDeleted           
@@ -55,6 +54,8 @@ INSERT (
 	,S.GroupName   
 	,S.Description    
 	,S.ParentGroupId     
+	,S._InsertedById
+	,S._InsertedDate
 	,S._UpdatedById       
 	,S._UpdatedDate       
 	,S._IsDeleted         

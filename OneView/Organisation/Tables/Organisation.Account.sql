@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS Organisation.Account
+CREATE OR ALTER TABLE Organisation.Account
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
     ,OneViewID           INT   

@@ -1,5 +1,5 @@
 
-CREATE TABLE IF NOT EXISTS Common.Staging_Language
+CREATE OR ALTER TABLE Common.Staging_Language
 (
 	LanguageID	        INT,
     LanguageCode		CHAR(5)	,
