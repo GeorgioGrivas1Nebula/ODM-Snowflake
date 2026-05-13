@@ -4,7 +4,6 @@ CREATE OR REPLACE TABLE Organisation.Staging_Owner
 	,ClientReference             NVARCHAR (4)
 	,ClientId          INT     
 	,OwnerGUID           UUID 
-	,Link                INT              
 	,Owner               NVARCHAR (500)   
 	,OwnerNo             NVARCHAR (100)   
 	,Description         NVARCHAR 

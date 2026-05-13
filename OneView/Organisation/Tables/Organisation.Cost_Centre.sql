@@ -2,10 +2,9 @@
 CREATE OR ALTER TABLE Organisation.Cost_Centre
 (
 	_ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
-    ,OneViewID INT
-    ,ClientId               INT         
+    ,OneViewID INT COMMENT 'Source-system identifier from OneView'  
+    ,ClientId               INT
     ,CostCentreGUID         UUID
-    ,Link                   INT             
     ,CostCentre             NVARCHAR(200)  
     ,Description            NVARCHAR
     ,CompanyID              INT            
@@ -15,7 +14,6 @@ CREATE OR ALTER TABLE Organisation.Cost_Centre
     ,Email                  NVARCHAR  
     ,OpsBoardMember         NVARCHAR(50)   
     ,CloudProportionedBit   BOOLEAN             
-    ,LinkType               INT             
     ,_InsertedById          INT
     ,_InsertedDate          DATETIME
     ,_UpdatedById           INT

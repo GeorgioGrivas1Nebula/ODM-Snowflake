@@ -8,7 +8,6 @@ CREATE OR ALTER TABLE Organisation.Staging_Account
     ,AccountNo          NVARCHAR (20) 
     ,AccountName        NVARCHAR (100)
     ,AccountTradeName   NVARCHAR (100)
-    ,Link               INT             
     ,StatusDetailID     INT             
     ,TypeDetailID       INT             
     ,ClientVendorID     INT             

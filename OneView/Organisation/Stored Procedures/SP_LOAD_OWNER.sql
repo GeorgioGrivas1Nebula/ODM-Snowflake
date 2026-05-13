@@ -11,7 +11,6 @@ USING (
         OwnerID
         ,ClientId
         ,OwnerGUID
-        ,Link
         ,Owner
         ,OwnerNo
         ,Description
@@ -39,7 +38,6 @@ WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
     T.OwnerGUID = S.OwnerGUID,
-    T.Link = S.Link,
     T.Owner = S.Owner,
     T.OwnerNo = S.OwnerNo,
     T.Description = S.Description,
@@ -62,7 +60,6 @@ INSERT (
     OneViewID
     ,ClientID
     ,OwnerGUID
-    ,Link
     ,Owner
     ,OwnerNo
     ,Description
@@ -86,7 +83,6 @@ INSERT (
     S.OwnerID
     ,S.ClientId
     ,S.OwnerGUID
-    ,S.Link
     ,S.Owner
     ,S.OwnerNo
     ,S.Description

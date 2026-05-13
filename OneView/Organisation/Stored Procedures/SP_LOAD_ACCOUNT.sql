@@ -14,7 +14,6 @@ USING (
         ,AccountNo
         ,AccountName
         ,AccountTradeName
-        ,Link
         ,StatusDetailID
         ,TypeDetailID
         ,ClientVendorID
@@ -37,7 +36,6 @@ THEN UPDATE SET
     T.AccountNo = S.AccountNo,
     T.AccountName = S.AccountName,
     T.AccountTradeName = S.AccountTradeName,
-    T.Link = S.Link,
     T.StatusDetailID = S.StatusDetailID,
     T.TypeDetailID = S.TypeDetailID,
     T.ClientVendorID = S.ClientVendorID,
@@ -55,7 +53,6 @@ INSERT (
     ,AccountNo
     ,AccountName
     ,AccountTradeName
-    ,Link
     ,StatusDetailID
     ,TypeDetailID
     ,ClientVendorID
@@ -74,7 +71,6 @@ INSERT (
     ,S.AccountNo
     ,S.AccountName
     ,S.AccountTradeName
-    ,S.Link
     ,S.StatusDetailID
     ,S.TypeDetailID
     ,S.ClientVendorID

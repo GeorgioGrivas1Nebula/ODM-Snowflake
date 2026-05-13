@@ -1,10 +1,9 @@
 CREATE OR ALTER TABLE Organisation.Owner
 (
 	_ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER   
-	,OneViewID 	 INT
+	,OneViewID INT COMMENT 'Source-system identifier from OneView' 
     ,ClientID          INT     
 	,OwnerGUID           UUID 
-	,Link                INT              
 	,Owner               NVARCHAR (500)   
 	,OwnerNo             NVARCHAR (100)   
 	,Description         NVARCHAR 

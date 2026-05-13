@@ -1,9 +1,10 @@
 
-CREATE OR ALTER TABLE WAN.Staging_Account_Corporate_Billing
+CREATE OR REPLACE TABLE WAN.Staging_Account_Corporate_Billing
 (
     AccountCorporateWanBlID         INT     
     ,ClientReference                NVARCHAR(4)
     ,ClientId                       INT         
+    ,VendorId                      INT
     ,PeriodDate                     DATE          
     ,TrxNumber                      NVARCHAR (150)
     ,EntityID                       INT          
@@ -51,7 +52,8 @@ CREATE OR ALTER TABLE WAN.Staging_Account_Corporate_Billing
     ,AccessServiceType              NVARCHAR (60) 
     ,Billing_Type                   NVARCHAR (150)
     ,ImportID                       INT   
-    ,VendorReference                NVARCHAR (4)
+    ,VendorReference                    NVARCHAR(4)
+    ,FileTypeReference                    NVARCHAR(20)
     ,_InsertedById                  INT
     ,_InsertedDate                  DATETIME
     ,_UpdatedById                   INT

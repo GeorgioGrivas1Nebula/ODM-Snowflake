@@ -11,7 +11,6 @@ USING (
         CostCentreID
         ,ClientId
         ,CostCentreGUID
-        ,Link
         ,CostCentre
         ,Description
         ,CompanyID
@@ -21,7 +20,6 @@ USING (
         ,Email
         ,OpsBoardMember
         ,CloudProportionedBit
-        ,LinkType
         ,_InsertedById
         ,_InsertedDate
         ,_UpdatedById
@@ -35,7 +33,6 @@ WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
     T.CostCentreGUID = S.CostCentreGUID,
-    T.Link = S.Link,
     T.CostCentre = S.CostCentre,
     T.Description = S.Description,
     T.CompanyID = S.CompanyID,
@@ -45,7 +42,6 @@ THEN UPDATE SET
     T.Email = S.Email,
     T.OpsBoardMember = S.OpsBoardMember,
     T.CloudProportionedBit = S.CloudProportionedBit,
-    T.LinkType = S.LinkType,
     T._UpdatedById = S._UpdatedById,
     T._UpdatedDate = S._UpdatedDate,
     T._IsDeleted = S._IsDeleted
@@ -54,7 +50,6 @@ INSERT (
     OneViewID
     ,ClientId
     ,CostCentreGUID
-    ,Link
     ,CostCentre
     ,Description
     ,CompanyID
@@ -64,7 +59,6 @@ INSERT (
     ,Email
     ,OpsBoardMember
     ,CloudProportionedBit
-    ,LinkType
     ,_InsertedById
     ,_InsertedDate
     ,_UpdatedById
@@ -74,7 +68,6 @@ INSERT (
     S.CostCentreID
     ,S.ClientId
     ,S.CostCentreGUID
-    ,S.Link
     ,S.CostCentre
     ,S.Description
     ,S.CompanyID
@@ -84,7 +77,6 @@ INSERT (
     ,S.Email
     ,S.OpsBoardMember
     ,S.CloudProportionedBit
-    ,S.LinkType
     ,S._InsertedById
     ,S._InsertedDate
     ,S._UpdatedById

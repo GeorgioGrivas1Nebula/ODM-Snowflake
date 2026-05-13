@@ -1,7 +1,7 @@
 CREATE OR REPLACE TABLE Common.Lookup_Detail
 (
 	_ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER,
-    OneViewID INT,
+    OneViewID INT COMMENT 'Source-system identifier from OneView',
 	GroupId INT,
     Reference NVARCHAR (25),
     ClientId          INT,

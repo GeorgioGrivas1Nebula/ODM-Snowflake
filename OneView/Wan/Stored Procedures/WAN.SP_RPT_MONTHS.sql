@@ -1,0 +1,28 @@
+CREATE OR REPLACE PROCEDURE WAN.SP_RPT_MONTHS(ClientID NUMBER(38,0))
+RETURNS TABLE (
+    MonthValue DATE,
+    MonthText VARCHAR,
+    OrderValue NUMBER(38,0)
+)
+LANGUAGE SQL
+EXECUTE AS OWNER
+AS
+$$
+DECLARE res RESULTSET;
+
+BEGIN
+res := (
+    SELECT DISTINCT
+        mth.PeriodDate AS MonthValue,
+        INITCAP(TO_VARCHAR(mth.PeriodDate, 'MON YYYY')) AS MonthText,
+        2 AS OrderValue
+    FROM WAN.ACCOUNT_CORPORATE_BILLING mth
+    JOIN NEBCOREODMSFDEV.ONEVIEW.DIMCLIENT cl ON mth.ClientID = cl._ID
+    WHERE cl.ClientID = :ClientID
+    ORDER BY OrderValue, MonthValue DESC
+);
+    RETURN TABLE(res);
+END;
+$$
+
+CALL WAN.SP_RPT_MONTHS( 15 );

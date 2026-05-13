@@ -2,13 +2,12 @@
 CREATE OR ALTER TABLE Organisation.Account
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
-    ,OneViewID           INT   
+    ,OneViewID           INT   COMMENT 'Source-system identifier from OneView'  
     ,ClientId               INT         
     ,AccountGUID        UUID
     ,AccountNo          NVARCHAR (20) 
     ,AccountName        NVARCHAR (100)
     ,AccountTradeName   NVARCHAR (100)
-    ,Link               INT             
     ,StatusDetailID     INT             
     ,TypeDetailID       INT             
     ,ClientVendorID     INT             

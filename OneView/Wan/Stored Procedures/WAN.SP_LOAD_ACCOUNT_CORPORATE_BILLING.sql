@@ -10,6 +10,7 @@ USING (
     SELECT
         AccountCorporateWanBlID
         ,ClientId
+        ,VendorId
         ,PeriodDate
         ,TrxNumber
         ,EntityID
@@ -57,7 +58,7 @@ USING (
         ,AccessServiceType
         ,Billing_Type
         ,ImportID
-        ,VendorReference
+        ,FileTypeReference
         ,_InsertedById
         ,_InsertedDate
         ,_UpdatedById
@@ -70,6 +71,7 @@ AND T.ClientId = S.ClientId
 WHEN MATCHED
 AND S._UpdatedDate != T._UpdatedDate
 THEN UPDATE SET
+    T.VendorId = S.VendorId,
     T.PeriodDate = S.PeriodDate,
     T.TrxNumber = S.TrxNumber,
     T.EntityID = S.EntityID,
@@ -117,7 +119,7 @@ THEN UPDATE SET
     T.AccessServiceType = S.AccessServiceType,
     T.Billing_Type = S.Billing_Type,
     T.ImportID = S.ImportID,
-    T.VendorReference = S.VendorReference,
+    T.FileTypeReference = S.FileTypeReference,
     T._UpdatedById = S._UpdatedById,
     T._UpdatedDate = S._UpdatedDate,
     T._IsDeleted = S._IsDeleted
@@ -125,6 +127,7 @@ WHEN NOT MATCHED THEN
 INSERT (
     OneViewID
     ,ClientId
+    ,VendorId
     ,PeriodDate
     ,TrxNumber
     ,EntityID
@@ -172,7 +175,7 @@ INSERT (
     ,AccessServiceType
     ,Billing_Type
     ,ImportID
-    ,VendorReference
+    ,FileTypeReference
     ,_InsertedById
     ,_InsertedDate
     ,_UpdatedById
@@ -181,6 +184,7 @@ INSERT (
 ) VALUES (
     S.AccountCorporateWanBlID
     ,S.ClientId
+    ,S.VendorId
     ,S.PeriodDate
     ,S.TrxNumber
     ,S.EntityID
@@ -228,7 +232,7 @@ INSERT (
     ,S.AccessServiceType
     ,S.Billing_Type
     ,S.ImportID
-    ,S.VendorReference
+    ,S.FileTypeReference
     ,S._InsertedById
     ,S._InsertedDate
     ,S._UpdatedById

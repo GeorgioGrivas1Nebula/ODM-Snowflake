@@ -2,7 +2,7 @@
 CREATE OR ALTER TABLE Organisation.Allocation_Group
 (
     _ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER 
-    ,OneViewID INT     
+    ,OneViewID INT       COMMENT 'Source-system identifier from OneView'
     ,ClientReference        NVARCHAR(4)
     ,ClientId               INT         
     ,AllocationGroup        NVARCHAR(100)       

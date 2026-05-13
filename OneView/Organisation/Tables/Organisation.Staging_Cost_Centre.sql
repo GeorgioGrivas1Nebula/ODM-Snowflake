@@ -5,7 +5,6 @@ CREATE OR ALTER TABLE Organisation.Staging_Cost_Centre
     ,ClientReference        NVARCHAR(4)
     ,ClientId               INT         
     ,CostCentreGUID         UUID
-    ,Link                   INT             
     ,CostCentre             NVARCHAR(200)  
     ,Description            NVARCHAR
     ,CompanyID              INT            
@@ -15,7 +14,6 @@ CREATE OR ALTER TABLE Organisation.Staging_Cost_Centre
     ,Email                  NVARCHAR  
     ,OpsBoardMember         NVARCHAR(50)   
     ,CloudProportionedBit   BOOLEAN             
-    ,LinkType               INT             
     ,_InsertedById          INT
     ,_InsertedDate          DATETIME
     ,_UpdatedById           INT

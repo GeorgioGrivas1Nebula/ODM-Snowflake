@@ -2,7 +2,7 @@
 CREATE OR ALTER TABLE Organisation.Employee
 (
 	_ID NUMBER(38,0) NOT NULL AUTOINCREMENT START 1 INCREMENT 1 NOORDER
-    ,OneViewID INT
+    ,OneViewID INT COMMENT 'Source-system identifier from OneView'  
     ,ClientId          INT              
 	,EmployeeGUID            UUID
 	,Emp_No                  NVARCHAR(500) 
@@ -10,7 +10,7 @@ CREATE OR ALTER TABLE Organisation.Employee
 	,User_ID_Stat            NCHAR (1)     
 	,Surname                 NVARCHAR(200) 
 	,First_Names             NVARCHAR(200) 
-	,FullName                NVARCHAR(200)
+	,FullName                NVARCHAR
 	,Termination_Description NVARCHAR(200) 
 	,ID_Number               NVARCHAR
 	,Nationality             NVARCHAR
@@ -31,7 +31,7 @@ CREATE OR ALTER TABLE Organisation.Employee
 	,EmploymentGroup         NVARCHAR 
 	,EmpManagerNo            NVARCHAR 
 	,EmpManagerName          NVARCHAR 
-	,ManagerEmployeeID       INT      
+	,ManagerEmployeeID INT COMMENT 'Parent of the employee in the employee hierarchy, references EmployeeID'  
 	,ExtractDate             DATETIME 
 	,Hay_Band                NVARCHAR 
 	,Date_Engaged            DATE          
