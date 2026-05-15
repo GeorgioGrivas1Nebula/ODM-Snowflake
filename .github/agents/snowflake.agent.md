@@ -22,6 +22,13 @@ Follow the existing OneView structure:
 
 ## Table Conventions
 
+## Identifier Semantics
+
+- Treat `_ID` as the main Snowflake identifier for each row and the default key for joins, lookups, and ongoing use inside this warehouse.
+- Treat `OneViewID` or `OneViewId` as the source-system identifier from OneView only.
+- Use `OneViewID` only for lineage, reconciling source data, and converting newly staged rows into warehouse `_ID` values.
+- Do not treat `OneViewID` as the primary relational key in downstream Snowflake objects unless the task explicitly requires exposing the original source identifier.
+
 When creating target tables:
 
 - Use `CREATE OR ALTER TABLE  <Schema>.<Table>`
@@ -57,7 +64,7 @@ For staging load procedures:
 - Prefer explicit source stage paths
 - For Parquet loads, use a named file format or an approved inline format only where Snowflake syntax supports it
 - Use `MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE` when the staged file layout supports it
-- Use `ON_ERROR = CONTINUE` and `PURGE = TRUE` only if that matches the established load behavior for the surrounding area
+- Use `ON_ERROR = CONTINUE` and `FORCE = TRUE` only if that matches the established load behavior for the surrounding area
 
 For merge procedures:
 

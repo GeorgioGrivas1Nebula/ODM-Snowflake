@@ -57,7 +57,7 @@ For staging load procedures:
 - Prefer explicit source stage paths
 - For Parquet loads, use a named file format or an approved inline format only where Snowflake syntax supports it
 - Use `MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE` when the staged file layout supports it
-- Use `ON_ERROR = CONTINUE` and `PURGE = TRUE` only if that matches the established load behavior for the surrounding area
+- Use `ON_ERROR = CONTINUE` and `FORCE = TRUE` only if that matches the established load behavior for the surrounding area
 
 For merge procedures:
 
